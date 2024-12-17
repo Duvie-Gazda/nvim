@@ -1,0 +1,10 @@
+require("helpers")
+SetKeyMap("<C-s>", ":w", {})
+SetKeyMapFunc("<A-r>", function()
+	vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, { noremap = true, silent = true })
+SetKeyMap("<A-f>", ":let @+ = expand('%:p')", {})
+
+vim.api.nvim_set_keymap("i", "<M-BS>", "<C-w>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("c", "<M-BS>", "<C-w>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("!", "<M-BS>", "<C-w>", { noremap = true, silent = true })
